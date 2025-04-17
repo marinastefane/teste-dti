@@ -9,6 +9,7 @@ app.use(cors());
 
 let alunos = [];
 
+// cadastra um novo aluno, calcula media das notas e frequencia
 app.post("/alunos", (req, res) => {
   const { nome, notas, presencas } = req.body;
 
@@ -24,22 +25,19 @@ app.post("/alunos", (req, res) => {
     });
   }
 
-  //calculo da media
+  //calculo da media individual de notas
   let somaNotas = 0;
   for (let i = 0; i < notas.length; i++) {
     somaNotas += parseFloat(notas[i]);
   }
-
-  //media individual das notas do aluno
   const media = somaNotas / notas.length;
 
+  //calculo da media individual de presenca
   let somaPresenca = 0;
   for (let i = 0; i < presencas.length; i++) {
     somaPresenca += parseFloat(presencas[i]);
   }
-
-  //media individual da frequencia do aluno
-  const frequencia = (somaPresenca / presencas.length).toFixed(2);
+  const frequencia = (somaPresenca / presencas.length).toFixed(1);
 
   const novoAluno = {
     nome,
@@ -53,11 +51,12 @@ app.post("/alunos", (req, res) => {
   res.status(201).json({ mensagem: "Aluno adicionado com sucesso!" });
 });
 
-//rota para buscar todos os alunos (GET)
+// rota para retornar todos os alunos (GET)
 app.get("/alunos", (req, res) => {
   res.json(alunos);
 });
 
+// calcula e retorna a media geral da turma
 app.get("/media-geral", (req, res) => {
   if (alunos.length == 0) {
     return res.json({ mediaGeral: 0 });
@@ -74,7 +73,7 @@ app.get("/media-geral", (req, res) => {
   res.json({ mediaGeral: mediaGeral.toFixed(2) });
 });
 
-// Média da turma por disciplina
+// calcula e retorna a media da turma por disciplina
 app.get("/media-por-disciplina", (req, res) => {
   if (alunos.length === 0) {
     return res.json({ medias: [] });
@@ -87,12 +86,12 @@ app.get("/media-por-disciplina", (req, res) => {
   for (let i = 0; i < alunos.length; i++) {
     let aluno = alunos[i]; //pega o aluno atual
 
-    //percorre as 5 notas do atual aluno
+    //percorre as 5 notas do atual aluno e soma
     for (let j = 0; j < 5; j++) {
       somaTotalNotas[j] += aluno.notas[j];
     }
   }
-
+  // calcula a media por disciplina
   for (let k = 0; k < 5; k++) {
     mediaTurmaNotas[k] = somaTotalNotas[k] / alunos.length;
   }

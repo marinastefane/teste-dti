@@ -8,21 +8,11 @@ function App() {
   const [nome, setNome] = useState("");
 
   const [notas, setNotas] = useState(["", "", "", "", ""]);
-  // const [nota2, setNota2] = useState("");
-  // const [nota3, setNota3] = useState("");
-  // const [nota4, setNota4] = useState("");
-  // const [nota5, setNota5] = useState("");
 
   const [presencas, setPresencas] = useState(["", "", "", "", ""]);
-  // const [presenca1, setPresenca1] = useState("");
-  // const [presenca2, setPresenca2] = useState("");
-  // const [presenca3, setPresenca3] = useState("");
-  // const [presenca4, setPresenca4] = useState("");
-  // const [presenca5, setPresenca5] = useState("");
 
   const [mediaGeralTurma, setMediaGeralTurma] = useState(0);
   const [mediaTurmaNotas, setMediaTurmaNotas] = useState([0, 0, 0, 0, 0]);
-  // const [alunosAcimaMedia, setAlunosAcimaMedia] = useState([]);
 
   useEffect(() => {
     carregarDados();
@@ -184,11 +174,11 @@ function App() {
         <thead>
           <tr>
             <th>Nome</th>
-            <th>Nota 1</th>
-            <th>Nota 2</th>
-            <th>Nota 3</th>
-            <th>Nota 4</th>
-            <th>Nota 5</th>
+            <th>Disciplina 1</th>
+            <th>Disciplina 2</th>
+            <th>Disciplina 3</th>
+            <th>Disciplina 4</th>
+            <th>Disciplina 5</th>
             <th>Frequência Média (%)</th>
             <th>Média</th>
             <th>Situação</th>

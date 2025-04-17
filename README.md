@@ -6,7 +6,7 @@ O sistema é composto por uma API backend desenvolvida com **Node.js e Express**
 
 ## Funcionalidades
 
-- **Adicionar Alunos:** O professor pode adicionar alunos informando o nome, as notas (de 0 a 10) e a frequência (em porcentagem) nas 5 disciplinas.
+- **Adicionar Alunos:** O professor pode adicionar alunos informando o nome, as notas (de 0 a 10) e a frequência em porcentagem (de 0 a 100) nas 5 disciplinas.
 - **Média Geral da Turma:** A média geral da turma é calculada com base nas médias individuais de cada aluno.
 - **Média por Disciplina:** Exibe a média de notas para cada disciplina.
 - **Situação do Aluno:** A situação de cada aluno é exibida com base na média e na frequência. Alunos com frequência abaixo de 75% são destacados.
@@ -60,10 +60,10 @@ O backend estará rodando em `http://localhost:5000`
 
 ### 3. Configuração do Frontend
 
-1. Navegue até a pasta src:
+1. Navegue até a pasta frontend:
 
 ```bash
-cd src
+cd frontend
 ```
 
 2. Instale as dependências do frontend:
@@ -149,7 +149,7 @@ O backend estará rodando em `http://localhost:3000`
 ## Estrutura do Projeto
 
 - `/frontend`: Contém o codigo do frontend (React.js)
-    - `src/App.js`: Componente principal do frontend, onde ocorre a interação com o backend e a renderização da interface.
-    - `src/index.css`: Arquivo CSS para a estilização do frontend.
+  - `src/App.js`: Componente principal do frontend, onde ocorre a interação com o backend e a renderização da interface.
+  - `src/index.css`: Arquivo CSS para a estilização do frontend.
 - `backend`: Contém o código do backend (Node.js e Express).
-    - `server.js`: Arquivo principal do servidor, onde são configuradas as rotas e lógica do backend.
+  - `server.js`: Arquivo principal do servidor, onde são configuradas as rotas e lógica do backend.

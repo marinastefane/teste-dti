@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 body {
-  font-family: Arial, sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
   background-color: #f2f2f2;
   margin: 0;
   padding: 20px;
@@ -15,6 +17,9 @@ body {
 }
 
 .title {
+  font-family: "Playfair Display", serif;
+  color: #0f7486;
+  font-size: 40px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -26,9 +31,14 @@ body {
 }
 
 .input-texto {
-  width: 97%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  width: 100%;
   padding: 10px;
   font-size: 16px;
+}
+
+.form-container {
+  display: flex;
 }
 
 .form-frequencias {
@@ -46,13 +56,15 @@ body {
 
 .input-nota,
 .input-frequencia {
+  font-family: Georgia, "Times New Roman", Times, serif;
   padding: 10px;
   font-size: 16px;
 }
 
 .botao {
+  font-family: Georgia, "Times New Roman", Times, serif;
   padding: 10px;
-  background-color: #28aac2;
+  background-color: #329eb1;
   color: white;
   font-size: 16px;
   border: none;
