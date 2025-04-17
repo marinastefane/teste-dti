@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# Controle de Notas - Professor Carlos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse é um sistema de controle de notas e frequências para uma turma. Ele permite adicionar alunos com suas notas e frequências, calcular médias gerais, além de mostrar alunos com desempenho acima da média em pelo menos uma disciplina.
 
-## Available Scripts
+O sistema é composto por uma API backend desenvolvida com **Node.js e Express** e um frontend desenvolvido com **React.js.**
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+- **Adicionar Alunos:** O professor pode adicionar alunos informando o nome, as notas (de 0 a 10) e a frequência (em porcentagem) nas 5 disciplinas.
+- **Média Geral da Turma:** A média geral da turma é calculada com base nas médias individuais de cada aluno.
+- **Média por Disciplina:** Exibe a média de notas para cada disciplina.
+- **Situação do Aluno:** A situação de cada aluno é exibida com base na média e na frequência. Alunos com frequência abaixo de 75% são destacados.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias Usadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
 
-### `npm test`
+- **React.js:** Para construção da interface do usúario.
+- **CSS:** Para estilização da interface.
+- **Axios:** Para fazer requisições HTTP ao backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+- **Node.js:** Ambiente de execução JavaScript
+- **Express:** Framework para a criação da API RESTful.
+- **CORS:** Middleware para permitir a comunicação entre o frontend e o backend (diferentes origens).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como rodar o projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clonar o repositório
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Primeiro, clone este repositório em sua máquina:
 
-### `npm run eject`
+```bash
+git clone https://github.com//marinastefane/teste-dti.git
+cd teste-dti
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Configuração do Backend (API)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navegue até a pasta do backend:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd backend
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Instale as dependências do backend:
 
-## Learn More
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Inicie o servidor do backend:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+node server.js
+```
 
-### Code Splitting
+O backend estará rodando em `http://localhost:5000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Configuração do Frontend
 
-### Analyzing the Bundle Size
+1. Navegue até a pasta src:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+cd src
+```
 
-### Making a Progressive Web App
+2. Instale as dependências do frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm install
+```
 
-### Advanced Configuration
+3. Inicie o servidor do backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm start
+```
 
-### Deployment
+O backend estará rodando em `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Endpoints da API
 
-### `npm run build` fails to minify
+### `POST /alunos`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Descrição:** Adiciona um novo aluno com nome, notas e frequências.
+**Requisição:**
+
+```json
+{
+  "nome": "Nome do Aluno",
+  "notas": [7.5, 8.0, 6.0, 9.0, 7.2],
+  "presencas": [85, 90, 80, 95, 88]
+}
+```
+
+**Resposta:**
+
+`201 Created` se o aluno for adicionado com sucesso.
+
+### `GET /alunos`
+
+**Descrição:** Retorna a lista de todos os alunos com suas notas, frequências e médias.
+
+**Resposta:**
+
+```json
+[
+  {
+    "nome": "Aluno 1",
+    "notas": [7.5, 8.0, 6.0, 9.0, 7.2],
+    "frequencia": "88.00",
+    "media": "7.54"
+  },
+  {
+    "nome": "Aluno 2",
+    "notas": [5.0, 6.5, 7.8, 6.9, 5.5],
+    "frequencia": "85.00",
+    "media": "6.34"
+  }
+]
+```
+
+### `GET /media-geral`
+
+**Descrição:** Retorna a média geral da turma com base nas médias dos alunos.
+
+**Resposta:**
+
+```json
+{
+  "mediaGeral": "6.94"
+}
+```
+
+### `GET /media-por-disciplina`
+
+**Descrição:** Retorna a média das notas de cada disciplina.
+
+**Resposta:**
+
+```json
+{
+  "medias": ["6.75", "7.25", "6.90", "7.50", "6.85"]
+}
+```
+
+## Estrutura do Projeto
+
+- `/frontend`: Contém o codigo do frontend (React.js)
+    - `src/App.js`: Componente principal do frontend, onde ocorre a interação com o backend e a renderização da interface.
+    - `src/index.css`: Arquivo CSS para a estilização do frontend.
+- `backend`: Contém o código do backend (Node.js e Express).
+    - `server.js`: Arquivo principal do servidor, onde são configuradas as rotas e lógica do backend.
