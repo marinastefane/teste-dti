@@ -4,6 +4,16 @@ Esse é um sistema de controle de notas e frequências para uma turma. Ele permi
 
 O sistema é composto por uma API backend desenvolvida com **Node.js e Express** e um frontend desenvolvido com **React.js.**
 
+## Pré-requisitos
+
+É necessário garantir que as seguintes ferramentas estejam instaladas:
+
+- [Node.js](https://nodejs.org/)
+- [NPM (Node Package Manager)](https://www.npmjs.com/)
+- [Git](https://git-scm.com/)
+- **Navegador:** Testado no navegador [Brave](https://brave.com/pt-br/)
+  - Não testado em outros navegadores, embora o funcionamento seja esperado.
+
 ## Funcionalidades
 
 - **Adicionar Alunos:** O professor pode adicionar alunos informando o nome, as notas (de 0 a 10) e a frequência em porcentagem (de 0 a 100) nas 5 disciplinas.
@@ -60,7 +70,9 @@ O backend estará rodando em `http://localhost:5000`
 
 ### 3. Configuração do Frontend
 
-1. Navegue até a pasta frontend:
+(Use um segundo terminal)
+
+1. No segundo terminal, navegue até a pasta frontend:
 
 ```bash
 cd frontend
@@ -72,13 +84,13 @@ cd frontend
 npm install
 ```
 
-3. Inicie o servidor do backend:
+3. Inicie o servidor do frontend:
 
 ```bash
 npm start
 ```
 
-O backend estará rodando em `http://localhost:3000`
+O frontend estará rodando em `http://localhost:3000`
 
 ## Endpoints da API
 
@@ -146,6 +158,20 @@ O backend estará rodando em `http://localhost:3000`
 }
 ```
 
+## Premissas Assumidas
+
+1. **Frontend e Backend Separados:** O frontend (React) e o backend (Node.js + Express) são separados para modularidade, facilitando o desenvolvimento e a escalabilidade.
+
+2. **Comunicação via API:** A comunicação entre o frontend e o backend é feita via uma API RESTful, utilizando Axios para as requisições HTTP.
+
+## Decisões do Projeto
+
+1. **Frontend com React:** Escolhido por ser fácil de usar, modular e interativo, perfeito para construir interfaces dinâmicas.
+
+2. **Backend com Express:** Optado por sua simplicidade, facilitando a criação de rotas e manipulação de requisições.
+
+3. **Estrutura do Frontend:** O frontend é organizado de forma simples, com um arquivo principal `App.js` para gerenciar a interação com a API.
+
 ## Estrutura do Projeto
 
 - `/frontend`: Contém o codigo do frontend (React.js)
@@ -153,3 +179,9 @@ O backend estará rodando em `http://localhost:3000`
   - `src/index.css`: Arquivo CSS para a estilização do frontend.
 - `backend`: Contém o código do backend (Node.js e Express).
   - `server.js`: Arquivo principal do servidor, onde são configuradas as rotas e lógica do backend.
+
+## Informações Adicionais
+- **Contato:** Para quaisquer dúvidas, me contate pelo email [marinadelfino03@gmail.com](mailto:marinadelfino03@gmail.com)
+
+## Agradecimentos
+- Gostaria de expressar minha gratidão pela oportunidade de demonstrar meus conhecimentos, especialmente com o convite da empresa. Espero que o projeto atenda às expectativas! ;)
